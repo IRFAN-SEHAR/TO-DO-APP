@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(197, 196, 196);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background-color: rosybrown;
+}
+
+/* Main */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Add Item Form */
+.addItems {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: rosybrown;
+  border-radius: 15px;
+}
+
+.addItems input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  outline: none;
+}
+
+.addItems input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.addItems button {
+  align-self: flex-end;
+  width: 70px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+/* Notes Wrapper */
+.notesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Single Note */
+.notesContainer {
+  display: flex;
+}
+
+.notes {
+  width: 250px;
+  min-height: 180px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rosybrown;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes h2 {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  text-transform: uppercase;
+}
+
+.notes p {
+  flex: 1;
+  word-break: break-word;
+  text-transform: capitalize;
+}
+
+.notes button {
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 120px;
+  padding: 10px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: antiquewhite;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+/* Ultra shiny glass hover */
+.notes button:hover {
+  color: white;
+  background: rgba(255, 150, 220, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 0 15px rgba(255, 105, 180, 0.7),
+    0 0 30px rgba(255, 20, 147, 0.5),
+    0 0 60px rgba(255, 182, 193, 0.6),
+    inset 0 0 20px rgba(255,255,255,0.4);
+
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Shine sweep */
+.notes button::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 250%;
+  height: 250%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+  transform: rotate(25deg);
+  transition: 0.8s;
+}
+
+.notes button:hover::before {
+  left: 100%;
+}
+
+/* Floating emojis */
+.notes button .emoji {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.notes button:hover .emoji {
+  opacity: 1;
+  animation: floatEmoji 2.5s linear infinite;
+}
+
+/* Different positions */
+.notes button .e1 {
+  left: 10%;
+  bottom: -20px;
+  animation-delay: 0s;
+}
+
+.notes button .e2 {
+  left: 30%;
+  bottom: -20px;
+  animation-delay: .4s;
+}
+
+.notes button .e3 {
+  left: 50%;
+  bottom: -20px;
+  animation-delay: .8s;
+}
+
+.notes button .e4 {
+  left: 70%;
+  bottom: -20px;
+  animation-delay: 1.2s;
+}
+
+.notes button .e5 {
+  left: 85%;
+  bottom: -20px;
+  animation-delay: 1.6s;
+}
+
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(10deg) scale(1);
+  }
+
+  100% {
+    transform: translateY(-60px) rotate(-10deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+/* Footer */
+footer {
+    
+    
+  height: 60px;
+  margin-top: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rosybrown;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .addItems {
+    width: 90%;
+  }
+
+  .notes {
+    width: 100%;
+  }
+}
+
+
+
