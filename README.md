@@ -9,4 +9,4 @@ Tech Stack:
 Features:
 - Add Notes
 - Fetch Notes
-- Delete Notes
+- Delete Notes.
